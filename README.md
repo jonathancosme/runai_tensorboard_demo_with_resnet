@@ -1,10 +1,11 @@
 # Using Tensorboard with run:ai (ResNet example)
   
-**A 14-minute video of a live demo can be found [here](https://vimeo.com/746903607)**
+**A 14-minute video of a live demo can be found [here](https://youtu.be/VW5q_BXQ3Rg)**
   
 ## Description:
 This repo details an example of how to integrate run:ai with Tensorboard, using Tensorflow ResNet as an example.   
-It consists of 4 basic steps:
+It consists of 4 basic steps:  
+
 1. create a persistent directory on the NFS 
     + called 'tensorboard_logs' in our example
     + to hold the records from Tensorboard callbacks during Tensorflow training.
@@ -26,7 +27,8 @@ Example notebook and python scripts can be found here: [/tensorboard_resnet_demo
 ## Tensorboard intro 
   
 ### what does Tensorboard need?
-One thing is needed for Tensorboard:
+One thing is needed for Tensorboard:  
+
 1. A logs folder to store objects related to the runs   
   
 ![](images/image_1.png)  
@@ -67,18 +69,21 @@ history = model.fit(train_ds,
 ~~~  
   
 ## Tensorboard with run:ai
-### what is needed to run mlflow on run:ai?
+### what is needed to run mlflow on run:ai?  
+
 1. A persistent directory to keep
     + Tensorboard logs folder
 2. A first docker image with the following installed
     + Tensorboard
     + jupyterlab*
     + jupyter-server-proxy*  
-\*needed in order to access the mlflow UI
 3. A second docker image with the following installed 
     + Tensorflow\*\*
     + Keras\*\*  
+  
+\*needed in order to access the mlflow UI
 \*\* needed in order train Tensorflow models (ResNet in our example)  
+
 ### Creating a persisten directory
 #### We need to create a 'tensorboard_logs' folder on our NFS.  
   
@@ -106,7 +111,8 @@ This is what is in the dockerfile:
 ![](images/image_14.png)  
 
 ## accessing the Tensorboard UI
-Create a jupyter interactive job with:
+Create a jupyter interactive job with:  
+  
 + image jonathancosme/tensorboard-iu
 + mounted NFS folder (with 'tensorboard_logs' folder) in default jupyter work directory
   
